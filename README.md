@@ -44,6 +44,10 @@ We welcome contributions to improve this project. Feel free to fork the reposito
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
+## Credits
+
+Designed by Nikhil.
+
 ## Further Development
 
 1. Implement a scoring system to track user performance.
