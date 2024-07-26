@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulation - Red Team vs Blue Team</title>
+    <style>
+        /* Your CSS styles here */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            background-image: url('https://media.istockphoto.com/id/1160591812/photo/hud-the-world-digital-data-cyber-technology-background.jpg?s=1024x1024&w=is&k=20&c=EECER-Sfb7fDf2eb0htyF7NKefnQccdud-HX6ZnQSwY=');
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            text-align: center;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            background-color: rgba(255, 255, 255, 0.95);
+            animation: fadeIn 0.5s ease-out;
+            max-width: 800px;
+            width: 90%;
+            margin: auto;
+        }
+
+        h1 {
+            color: #007bff;
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            color: #007bff;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            text-align: left;
+        }
+
+        li {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        input[type="radio"] {
+            display: none;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            cursor: pointer;
+            text-align: left;
+            position: relative;
+        }
+
+        input[type="radio"] + label::before {
+            content: '';
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            border: 2px solid #007bff;
+            margin-right: 10px;
+            vertical-align: middle;
+        }
+
+        input[type="radio"]:checked + label::before {
+            background-color: #007bff;
+        }
+
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background-color 0.3s ease-in-out;
+            display: inline-block;
+            margin-top: 20px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Additional styles for enhancement */
+        .header-container {
+            margin-bottom: 40px;
+        }
+
+        .header-container img {
+            width: 150px;
+            margin-bottom: 20px;
+        }
+
+        .header-container p {
+            font-size: 18px;
+            color: #555;
+        }
+
+        .section-container {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 40px;
+        }
+
+        .section {
+            flex-basis: 45%;
+            text-align: left;
+        }
+
+        .section h2 {
+            color: #007bff;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .section ul {
+            padding-left: 20px;
+        }
+
+        .section ul li {
+            margin-bottom: 8px;
+        }
+
+        .section ul li:before {
+            content: '•';
+            color: #007bff;
+            margin-right: 8px;
+            position: absolute;
+            left: -20px;
+            top: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header-container">
+            <h1>Red Team vs Blue Team</h1>
+            <p>Choose your tactics wisely!</p>
+        </div>
+        
+        <div class="section-container">
+            <div class="section">
+                <h2>Attacks</h2>
+                <ul class="attack-list">
+                    <li><input type="radio" id="phishing" name="attack"><label for="phishing">Using Phishing</label></li>
+                    <li><input type="radio" id="sqlInjection" name="attack"><label for="sqlInjection">Using SQL Injection</label></li>
+                    <li><input type="radio" id="xss" name="attack"><label for="xss">Using Cross-Site Scripting (XSS)</label></li>
+                    <li><input type="radio" id="bruteForce" name="attack"><label for="bruteForce">Using Brute Force</label></li>
+                </ul>
+            </div>
+            
+            <div class="section">
+                <h2>Defenses</h2>
+                <ul class="defense-list">
+                    <li><input type="radio" id="encryption" name="defense"><label for="encryption">Against Phishing</label></li>
+                    <li><input type="radio" id="firewalls" name="defense"><label for="firewalls">Against SQL Injection</label></li>
+                    <li><input type="radio" id="ids" name="defense"><label for="ids">Against XSS</label></li>
+                    <li><input type="radio" id="mfa" name="defense"><label for="mfa">Against Brute Force</label></li>
+                </ul>
+            </div>
+        </div>
+
+        <button onclick="startSimulation()">Start Simulation</button>
+        <button onclick="openRealtimeSimulation()">Real Time Simulation</button>
+    </div>
+    
+    <script>
+        function startSimulation() {
+            window.open('animation.html');
+        }
+
+        function openRealtimeSimulation() {
+            if(((document.getElementById("sqlInjection")).checked) && (document.getElementById("firewalls")).checked){
+                window.open('sql_injection/nosql_inj.html');
+            }else if(((document.getElementById("sqlInjection")).checked) && !(document.getElementById("firewalls")).checked){
+                window.open('sql_injection/sql_injection.html');
+            }else if((document.getElementById("xss")).checked){
+                window.open('XSS_attack/xss.html');
+            }
+            else if(((document.getElementById("phishing")).checked) && (document.getElementById("encryption")).checked){
+                window.open('phishing/phishing_verify.html');
+            }else if(((document.getElementById("phishing")).checked) && !(document.getElementById("encryption")).checked){
+                window.open('phishing/phishing_no.html');
+            }else if(((document.getElementById("bruteForce")).checked) && (document.getElementById("mfa")).checked){
+                window.open('bruteforce/lp_yes.html');
+            }else if(((document.getElementById("bruteForce")).checked) && !(document.getElementById("mfa")).checked){
+                window.open('Bruteforce/lp_no.html');
+            }else{
+                alert("Please select an Option!!");
+            }
+        }
+
+        document.querySelectorAll('input[type="radio"]').forEach(function(radio) {
+            radio.addEventListener('click', function() {
+                if (this.checked) {
+                    if (this.dataset.clicked === "true") {
+                        this.checked = false;
+                        this.dataset.clicked = "false";
+                    } else {
+                        this.dataset.clicked = "true";
+                    }
+                    document.querySelectorAll('input[name="' + this.name + '"]').forEach(function(r) {
+                        if (r !== radio) {
+                            r.dataset.clicked = "false";
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XSS Attack</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('360_F_583681299_ZwcnB1YPh5pJwc9JEWNz1eQMEXYL2fb7.webp'); /* Path to your background image */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        #froms {
+            width: 400px; /* Adjust the width as needed */
+            padding: 40px; /* Adjust the padding as needed */
+            background-color: rgba(255, 255, 255, 0.8); /* Background color with transparency */
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        h2 {
+            color: #007bff;
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+
+        #but {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        #but:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <form action="xss_tab.php" method="post" id="froms">
+        <h2>XSS Attack</h2>
+        <label for="fname">Enter Name:</label>
+        <input type="text" id="fname" name="fname" placeholder="Type here...">
+        <br>
+        <button type="submit" id="but">Submit</button>
+    </form>
+</body>
+</html>

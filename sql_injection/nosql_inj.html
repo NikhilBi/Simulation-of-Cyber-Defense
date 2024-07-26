@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SQL Injection Attack</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('vL4AP.webp');
+            background-size: cover;
+            background-position: center;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            backdrop-filter: blur(8px); /* Add blur effect */
+            -webkit-backdrop-filter: blur(8px); /* For Safari */
+        }
+
+        #loginForm {
+            width: 300px;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        h2 {
+            color: #007bff;
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+
+        #log_but {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        #log_but:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <form action="login.php" method="post" id="loginForm">
+        <h2>Enter Login Info</h2>
+        <label for="username">Username:</label>
+        <input type="text" name="username" id="username" value="abc">
+        <br>
+        <label for="password">Password:</label>
+        <input type="text" name="password" id="password" value="' OR '1'='1">
+        <br>
+        <button type="submit" id="log_but">Login</button>
+    </form>
+</body>
+</html>

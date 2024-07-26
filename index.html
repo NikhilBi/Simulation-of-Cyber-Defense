@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Red Team vs Blue Team</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-image: url('https://wallpaperaccess.com/full/316894.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff; /* Changed text color to white for better contrast */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            text-align: center;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Increased shadow for depth effect */
+            background-color: rgba(0, 0, 0, 0.7); /* Added transparency for background */
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        h1 {
+            color: #07c5ff; /* Changed main title color to cyan */
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            border: 2px solid #07c5ff; /* Added border for buttons */
+            border-radius: 5px;
+            background-color: transparent; /* Made button background transparent */
+            color: #07c5ff;
+            font-size: 16px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .btn:hover {
+            background-color: #07c5ff; /* Changed background color on hover */
+            color: #fff; /* Changed text color on hover */
+        }
+
+        /* Keyframe animation */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Remove list-style from anchor tag */
+        a {
+            text-decoration: none;
+            list-style: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to Cyber War</h1>
+        <p>This is a simulated scenario where Red Team launches cyber-attacks and Blue Team defends against them.</p>
+        <a href="simulation.html" class="btn">Get Started</a>
+    </div>
+</body>
+</html>

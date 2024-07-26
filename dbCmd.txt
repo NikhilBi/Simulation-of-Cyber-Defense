@@ -1,0 +1,50 @@
+/*
+SQLyog Community v13.1.9 (64 bit)
+MySQL - 10.4.32-MariaDB : Database - hackthon
+*********************************************************************
+*/
+
+/*!40101 SET NAMES utf8 */;
+
+/*!40101 SET SQL_MODE=''*/;
+
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+CREATE DATABASE /*!32312 IF NOT EXISTS*/`hackthon` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci */;
+
+USE `hackthon`;
+
+/*Table structure for table `bruteforce` */
+
+DROP TABLE IF EXISTS `bruteforce`;
+
+CREATE TABLE `bruteforce` (
+  `user` varchar(254) DEFAULT NULL,
+  `pass` varchar(254) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+/*Data for the table `bruteforce` */
+
+insert  into `bruteforce`(`user`,`pass`) values 
+('aryan','aryan');
+
+/*Table structure for table `details` */
+
+DROP TABLE IF EXISTS `details`;
+
+CREATE TABLE `details` (
+  `user` varchar(254) DEFAULT NULL,
+  `pass` varchar(254) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+/*Data for the table `details` */
+
+insert  into `details`(`user`,`pass`) values 
+('admin','admin');
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;

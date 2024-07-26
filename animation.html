@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulation View</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: black;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #container {
+            position: relative;
+            width: 90%; /* Increase the width of the container */
+            max-width: 1400px; /* Set maximum width to prevent it from stretching too much */
+            height: 350px; /* Increase the height of the container */
+            background-color: #212121;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+
+        #redGun, #blueGun {
+            width: 100px;
+            height: 50px;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            border-radius: 5px;
+            transition: background-color 1s ease;
+        }
+
+        #redGun {
+            background-color: #FF5252;
+            left: 10px;
+        }
+
+        #blueGun {
+            background-color: #64B5F6;
+            right: 10px; /* Adjust the right position to create more space */
+        }
+
+        #bullet {
+            width: 0;
+            height: 0;
+            border-top: 10px solid transparent; /* Decrease arrow height */
+            border-bottom: 10px solid transparent; /* Decrease arrow height */
+            border-left: 20px solid #FFD600; /* Decrease arrow width */
+            position: absolute;
+            top: calc(50% - 10px); /* Adjust arrow position */
+            left: 110px;
+            transition: left 2s;
+        }
+
+        #attackButton, #defendButton {
+            position: absolute;
+            bottom: 20px;
+            font-size: 16px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        #attackButton {
+            left: 25%;
+            background-color: #e22a2a;
+            color: white;
+        }
+
+        #attackButton:hover {
+            background-color: #0056b3;
+        }
+
+        #defendButton {
+            right: 25%;
+            background-color: #29b2dc;
+            color: white;
+        }
+
+        #defendButton:hover {
+            background-color: #43A047;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="redGun"></div>
+        <div id="blueGun"></div>
+        <div id="bullet"></div>
+        <button id="attackButton">Attack</button>
+        <button id="defendButton">Defend</button>
+    </div>
+
+    <script>
+        document.getElementById('attackButton').addEventListener('click', function() {
+        var bullet = document.getElementById('bullet');
+        var blueGun = document.getElementById('blueGun');
+        var blueGunRect = blueGun.getBoundingClientRect();
+        var blueGunLeft = blueGunRect.left;
+        var bulletWidth = 20; // Decrease bullet width
+
+        var stopPosition = blueGunLeft - bulletWidth;
+
+        bullet.style.left = stopPosition + 'px';
+
+        bullet.addEventListener('transitionend', function() {
+            bullet.style.display = 'none';
+            blueGun.style.backgroundColor = '#FF5252'; // Change blue box color to red
+            alert("Attack Successfull!");
+            setTimeout(function() {
+                blueGun.style.backgroundColor = '#64B5F6'; // Change blue box color back to blue
+                bullet.style.left = '110px'; // Reset bullet position
+                bullet.style.display = 'block';
+            }, 1000); // Wait for 1 second before resetting
+        });
+    });
+
+    document.getElementById('defendButton').addEventListener('click', function() {
+        var bullet = document.getElementById('bullet');
+        bullet.style.display = 'none'; // Hide the yellow arrow
+
+        // Change the red box color to blue
+        document.getElementById('redGun').style.backgroundColor = '#64B5F6';
+        alert("Attack deflected Successfully!!");
+
+        // Restore initial GUI after 3 seconds
+        setTimeout(function() {
+            // Reset red box color
+            document.getElementById('redGun').style.backgroundColor = '#FF5252';
+
+            // Show the yellow arrow
+            bullet.style.display = 'block';
+        }, 3000);
+    });
+    </script>
+</body>
+</html>
